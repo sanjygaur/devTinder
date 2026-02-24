@@ -61,12 +61,23 @@ app.delete("/user",async(req,res)=>{
     res.send("Data succesfully deleted from the database");
 });
 
-app.patch("/user",async(req,res)=>{
-    const UserId = req.body.UserId; // Assuming the user ID is sent in the request body
+app.patch("/user/:UserId",async(req,res)=>{
+    const UserId = req.params?.UserId; // Assuming the user ID is sent in the request body
     const updateData = req.body; // Assuming the updated data is sent in the request body
+   
     console.log(UserId);
     console.log(updateData);
     try {
+
+         const allowedUpdates = ['firstName', 'lastName', 'email', 'password', 'age', 'gender',"skills"]; // Define allowed fields for update
+    const isValidOperation = Object.keys(updateData).every((key) => allowedUpdates.includes(key));  
+    if (!isValidOperation) {
+        return res.status(400).send("Invalid updates! Allowed fields: " + allowedUpdates.join(", "));
+    }
+if(updateData.skills.length>10){
+    return res.status(400).send("Skills must be an array of strings");
+}
+
         await User.findByIdAndUpdate( { _id: UserId },updateData,{
             returnDocument: "after",
             runValidators: true,

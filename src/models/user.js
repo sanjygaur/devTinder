@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
+        min: [18, 'Age must be at least 18'],
               
     },
     gender: {
@@ -39,7 +40,14 @@ const userSchema = new mongoose.Schema({
 
         
     },  
-   
+   skills: {
+    type: [String],
+    validate(value) {
+        if (!Array.isArray(value)) {
+            throw new Error('Skills must be an array of strings');
+        }
+    }
+   }
 },
 {
     timestamps: true // ✅ CORRECT PLACE

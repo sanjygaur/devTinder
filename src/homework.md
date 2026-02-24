@@ -41,3 +41,5 @@ create a repository
 -- create custom validate function for gender
 -- Improve the DB schema - put all appropriate validations on each field in schema
 -- Add timeStamp to the UserSchema
+-- Add API level validation on patch request & Signup post api
+-- DATA sanitising --Add API validation for each field
