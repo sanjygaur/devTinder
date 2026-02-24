@@ -6,18 +6,15 @@ const app = express();
 const User = require("./models/user"); // Import the User model
 
 app.use(express.json()); // Middleware to parse JSON request bodies
-app.post("/signup",async(req,res)=>{
-    console.log(req);
-    
-    // const userObj = {
-    //     firstName: "virat",
-    //     lastName: "kohli",
-    //     email: "virat12@gmail.com",
-    //     password: "virty@1230",
-    // };
-    const User = new User(req.body); // Create a new User instance with the request body
-    await User.save();
-    res.send("Data succesfully saved  to the database");
+app.post("/signup", async (req, res) => {
+    try {
+        const user = new User(req.body); // ✅ FIXED
+        await user.save();
+        return res.status(201).send("User created successfully");
+    } catch (error) {
+        console.error(error);
+        return res.status(400).send(error.message);
+    }
 });
 
 app.get("/user",async(req,res)=>{
@@ -70,10 +67,13 @@ app.patch("/user",async(req,res)=>{
     console.log(UserId);
     console.log(updateData);
     try {
-        await User.findByIdAndUpdate( { _id: UserId },updateData);
+        await User.findByIdAndUpdate( { _id: UserId },updateData,{
+            returnDocument: "after",
+            runValidators: true,
+        });
         res.send("Data successfully updated in the database");
     } catch (error) {
-        res.status(500).send("Error updating data in the database");
+        res.status(400).send("Update failed: " + error.message);
     }       
     console.log("update data in database");
     res.send("Data succesfully updated in the database");

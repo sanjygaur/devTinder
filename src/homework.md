@@ -36,3 +36,8 @@ create a repository
 -- difference between PATCH and PUT
 -- API - update a user
 -- explore mongo model api 
+-- add requred unique , min ,max , trim ,lowercase
+-- add default
+-- create custom validate function for gender
+-- Improve the DB schema - put all appropriate validations on each field in schema
+-- Add timeStamp to the UserSchema
