@@ -43,3 +43,4 @@ create a repository
 -- Add timeStamp to the UserSchema
 -- Add API level validation on patch request & Signup post api
 -- DATA sanitising --Add API validation for each field
+-- Install validator library function and use validator function for password email
