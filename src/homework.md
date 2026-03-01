@@ -44,3 +44,23 @@ create a repository
 -- Add API level validation on patch request & Signup post api
 -- DATA sanitising --Add API validation for each field
 -- Install validator library function and use validator function for password email
+-- never trust req.body
+
+-- validate data in signup API
+-- install bcrypt package
+-- create password hash using bcrypt.hash & save the user in encrupted password
+-- create login API
+-- compare password and throw errors if email or password is invalid
+-- UserAuth middleWare in profile API and a new sendConnectionRequest API
+-- Set the expiry of JWT token and cookies to 7 days
+-- create user schema method to comparepassword()
+
+
+
+Explore tinder API
+-- create a list all API you can think of in dev tinder
+-- Group multiple routes under respective routers
+-- Read documentation for express.Router
+-- create routes folder for managing auth ,profile , request routers
+-- create authRouter , profileRouter ,request Router
+-- Import these Routers in app.js 
