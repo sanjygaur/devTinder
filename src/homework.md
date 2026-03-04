@@ -64,3 +64,7 @@ Explore tinder API
 -- create routes folder for managing auth ,profile , request routers
 -- create authRouter , profileRouter ,request Router
 -- Import these Routers in app.js 
+-- create POST /LOGOUT API
+-- create PATCH /profile /Edit
+-- create PATCH /profile /password API => forgot password API
+-- make you all data in every  POST PATCH API

@@ -6,28 +6,46 @@ const bcrypt = require("bcrypt"); // Import bcrypt for password hashing
 const jwt = require("jsonwebtoken");
 authRouter.post("/signup", async (req, res) => {
     try {
-        validateSignUpData(req); // Validate the incoming data
+        validateSignUpData(req);
 
-        const {firstName,lastName,email, password } = req.body;
-        // Optional debug
-    console.log("firstName:", firstName);
+        const {
+            firstName,
+            lastName,
+            email,
+            password,
+            age,
+            gender,
+            skills,
+            about,
+            photoUrl
+        } = req.body;
 
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password with a salt round of 10
-       console.log("Hashed Password:", hashedPassword); // Log the hashed password for debugging
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         const user = new User({
             firstName,
             lastName,
             email,
-            password: hashedPassword, // Store the hashed password in the database
-        }); // ✅ FIXED
+            password: hashedPassword,
+            age,
+            gender,
+            skills,
+            about,
+            photoUrl
+        });
+
         await user.save();
-        return res.status(201).send("User created successfully");
+
+        return res.status(201).json({
+            message: "User created successfully",
+            data: user
+        });
+
     } catch (error) {
         console.error(error);
         return res.status(400).send(error.message);
     }
 });
-
 authRouter.post("/login", async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -57,5 +75,10 @@ authRouter.post("/login", async (req, res) => {
         console.error(error);
         return res.status(500).send("An error occurred during login");
     }   
+});
+
+authRouter.post("/logout", (req, res) => {
+res.cookie("token",null, { httpOnly: true, expires: new Date(Date.now()) }); // Clear the token cookie by setting it to an empty value and expiring it immediately
+    res.send("Logout successful");
 });
 module.exports = authRouter;

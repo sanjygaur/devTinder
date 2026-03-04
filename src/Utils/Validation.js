@@ -11,7 +11,36 @@ const validateSignUpData = (req) => {
         throw new Error("Password must be at least 6 characters long and include a mix of uppercase letters, lowercase letters, numbers, and symbols");
     }
 };
- 
+const validateEditProfileData = (req) => {
+    const allowedUpdates = [
+        "firstName",
+        "lastName",
+        "gender",
+        "age",
+        "skills",
+        "photoUrl",
+        "about"
+    ];
+
+    const updates = Object.keys(req.body);
+
+    const isValidOperation = updates.every((key) =>
+        allowedUpdates.includes(key)
+    );
+
+    if (!isValidOperation) {
+        const invalidFields = updates.filter(
+            (key) => !allowedUpdates.includes(key)
+        );
+        throw new Error(`Invalid fields: ${invalidFields.join(", ")}`);
+    }
+};
+
 module.exports = {
-    validateSignUpData
+    validateEditProfileData
+};
+
+module.exports = {
+    validateSignUpData,
+    validateEditProfileData
 };

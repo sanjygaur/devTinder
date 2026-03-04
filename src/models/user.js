@@ -61,7 +61,20 @@ const userSchema = new mongoose.Schema({
             throw new Error('Skills must be an array of strings');
         }
     }
-   }
+   },
+    about: {    
+        type: String,
+        maxlength: 500,
+    },
+    photoUrl: {
+        type: String,
+        validate(value) {
+            if (value && !validator.isURL(value)) {
+                throw new Error('Invalid URL format for photoUrl');
+            }
+        }
+    }
+
 },
 {
     timestamps: true // ✅ CORRECT PLACE

@@ -7,7 +7,7 @@
 ## ProfileRouter::
 -- GET /profile/view
 -- PATCH /profile /Edit
---PATCH /profile/ password
+--PATCH /profile/ password // forgot PasswordAPI
 
 ## ConnectionRequestRouter::
 -- POST /request / send /interested /:UserId
