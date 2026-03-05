@@ -7,12 +7,15 @@
 ## ProfileRouter::
 -- GET /profile/view
 -- PATCH /profile /Edit
---PATCH /profile/ password // forgot PasswordAPI
+--PATCH /profile/ password / forgot PasswordAPI
 
 ## ConnectionRequestRouter::
--- POST /request / send /interested /:UserId
--- POST / request /send / ignored /:UserId
+-- POST /request / send /status /:UserId
+
+
 -- POST / request /review / accepted /:requestId
+-- POST / request /review / rejected /:requestId
+
 
 UserRouter::
 -- GET /user/ Connections

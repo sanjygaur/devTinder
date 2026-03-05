@@ -45,6 +45,10 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type: String,
+        enum: {
+            values: ['male', 'female', 'Other'],
+            message: 'Gender must be either Male,   Female, or Other'
+        },  
         validate(value) {
             const allowedGenders = ['male', 'female', 'Other'];
             if (!allowedGenders.includes(value)) {      
@@ -89,6 +93,8 @@ userSchema.methods.getJwtToken = async function() {
    });
     return token;
 }
+userSchema.index({firstName: 1});
+userSchema.index({gender: 1});
 userSchema.methods.validatePassword = async function(passwordInputByUser) {
 
     const user = this; // 'this' refers to the user document
