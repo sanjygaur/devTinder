@@ -68,3 +68,6 @@ Explore tinder API
 -- create PATCH /profile /Edit
 -- create PATCH /profile /password API => forgot password API
 -- make you all data in every  POST PATCH API
+
+-- Write code with proper validation for POST /request /review /:status /:requestId
+-- thought Process - POST vs GET

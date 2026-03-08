@@ -11,15 +11,14 @@
 
 ## ConnectionRequestRouter::
 -- POST /request / send /status /:UserId
+-- POST / request /review / status /:requestId
 
 
--- POST / request /review / accepted /:requestId
--- POST / request /review / rejected /:requestId
 
 
 UserRouter::
--- GET /user/ Connections
 -- GET /user /requests /received /:requestId
+-- GET /user/ Connections
 -- GET /feed - gets you the profile of other users on platform
 
 
