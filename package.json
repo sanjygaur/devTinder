@@ -1,4 +1,11 @@
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6edd7ba (update project)
+>>>>>>> b9b3924 (fix tailwind postcss configuration)
   "name": "devtinder",
   "version": "1.0.0",
   "description": "tinder for devs",
@@ -8,6 +15,29 @@
   ],
   "license": "ISC",
   "author": "sanjay gaur",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.1",
+    "validator": "^13.15.26"
+  }
+=======
+  "name": "devtinderweb",
+  "private": true,
+  "version": "0.0.0",
+=======
+>>>>>>> 6edd7ba (update project)
+>>>>>>> b9b3924 (fix tailwind postcss configuration)
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -38,6 +68,25 @@
     "globals": "^17.4.0",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
+<<<<<<< HEAD
     "vite": "^5.3.0"
   }
+=======
+<<<<<<< HEAD
+    "vite": "^8.0.0-beta.13"
+  },
+  "overrides": {
+    "vite": "^8.0.0-beta.13"
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+>>>>>>> 31393a3 (initial commit)
+=======
+    "vite": "^5.3.0"
+  }
+>>>>>>> 6edd7ba (update project)
+>>>>>>> b9b3924 (fix tailwind postcss configuration)
 }
