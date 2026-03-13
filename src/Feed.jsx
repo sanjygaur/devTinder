@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Login = () => {
+const Feed = () => {
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Feed</h1>
         </div>
     )
 }
 
-export default Login
+export default Feed
+
