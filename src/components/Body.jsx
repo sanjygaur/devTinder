@@ -31,9 +31,9 @@ const Body = () => {
 
     };
     useEffect(() => {
-        if (!userData) {
-            fetchUser();
-        }
+
+        fetchUser();
+
 
     }, []);
     return (
